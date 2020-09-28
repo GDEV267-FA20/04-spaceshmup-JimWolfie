@@ -462,6 +462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176519013bd48dd4a8004b58f234e983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabEnemies:
+  - {fileID: 7794793157272712594, guid: 293dfe79f784e1840a701b50ab619858, type: 3}
+  enemySpawnPerSecond: 0.5
+  enemyDefaultPadding: 1.5
 --- !u!1 &1362135773
 GameObject:
   m_ObjectHideFlags: 0
