@@ -10,9 +10,13 @@ public class Hero : MonoBehaviour
     public float speed =30;
     public float rollMult=-45;
     public float pitchMult =30;
+    public float gameRestartDelay =2f;
 
     [Header("Set Dynamically")]
-    public float shieldLevel =1;
+    [SerializeField]
+    private float _shieldLevel =1;
+
+    private GameObject lastTriggerGO = null;
 
     private void Awake()
     {
@@ -43,6 +47,33 @@ public class Hero : MonoBehaviour
     {
         Transform rooT = other.gameObject.transform.root;
         GameObject go = rooT.gameObject;
-        print("Triggered: "+go.name);
+        if(go == lastTriggerGO)
+        {
+            return;
+        }
+        lastTriggerGO= go;
+
+        if(go.tag == "Enemy")
+        {
+            shieldLevel--;
+            Destroy(go);
+        } else
+        {
+            print("Triggered by non enemy"+go.name);
+        }
+    }
+    public float shieldLevel
+    {
+        get {
+            return(_shieldLevel);
+        }
+        set {
+            _shieldLevel=Mathf.Min(value,4);
+            if(value<0)
+            {
+                Destroy(this.gameObject);
+                Main.S.DelayedRestart(gameRestartDelay);
+            }
+        }
     }
 }
