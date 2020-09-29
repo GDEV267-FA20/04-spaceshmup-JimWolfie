@@ -570,10 +570,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1490915862}
-  - component: {fileID: 1490915861}
   - component: {fileID: 1490915860}
   - component: {fileID: 1490915863}
   - component: {fileID: 1490915864}
+  - component: {fileID: 1490915861}
   m_Layer: 8
   m_Name: _Hero
   m_TagString: Hero
@@ -609,13 +609,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17191ab8f8e1b954da707a0be7835148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
-  rollMult: -45
-  pitchMult: 30
-  gameRestartDelay: 2
-  projectilePrefab: {fileID: 4318125855567020779, guid: 026947fc6a8817143af92f8f25be7a5c, type: 3}
-  projectileSpeed: 40
+  stats: {fileID: 11400000, guid: 029842227ef8e2e4bbac696dff3d5b05, type: 2}
   _shieldLevel: 1
+  gameRestartDelay: 2
 --- !u!4 &1490915862
 Transform:
   m_ObjectHideFlags: 0
