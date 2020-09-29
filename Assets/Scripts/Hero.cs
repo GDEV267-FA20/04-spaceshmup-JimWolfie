@@ -20,6 +20,12 @@ public class Hero : MonoBehaviour
 
     private GameObject lastTriggerGO = null;
 
+    public Vector3 pos
+    {
+        get {
+            return (this.transform.position);
+        }
+    }
     private void Awake()
     {
         if(S==null)
