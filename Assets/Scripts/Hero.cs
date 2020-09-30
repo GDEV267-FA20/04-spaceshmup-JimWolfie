@@ -20,6 +20,9 @@ public class Hero : MonoBehaviour
 
     private GameObject lastTriggerGO = null;
 
+    public delegate void WeaponFireDelegate();
+    public WeaponFireDelegate fireDelegate;
+
     private void Awake()
     {
         if(S==null)
@@ -29,6 +32,7 @@ public class Hero : MonoBehaviour
         {
             Debug.LogError("Hero.awake() - attempted to assign second Hero");
         }
+        
     }
 
     // Update is called once per frame
@@ -44,18 +48,12 @@ public class Hero : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(yAxis*pitchMult, xAxis*rollMult, 0);
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetAxis("Jump")==1 && fireDelegate!=null)
         {
-            TempFire();
+            fireDelegate();
         }
     }
-    void TempFire()
-    {
-        GameObject projGO = Instantiate<GameObject>(projectilePrefab);
-        projGO.transform.position = transform.position;
-        Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
-        rigidB.velocity = Vector3.up*projectileSpeed;
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
         Transform rooT = other.gameObject.transform.root;
