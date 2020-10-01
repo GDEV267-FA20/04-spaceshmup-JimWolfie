@@ -13,6 +13,7 @@ public class Hero : MonoBehaviour
     public float gameRestartDelay =2f;
     public GameObject projectilePrefab;
     public float projectileSpeed = 40f;
+    public Weapon[] weapons;
 
     [Header("Set Dynamically")]
     [SerializeField]
