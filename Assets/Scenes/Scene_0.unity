@@ -986,7 +986,7 @@ MonoBehaviour:
     continuousDamage: 0
     delayBetweenShots: 0.4
     velocity: 50
-  - type: 0
+  - type: 6
     letter: 
     color: {r: 0, g: 0.9450981, b: 0, a: 1}
     projectilePrefab: {fileID: 4318125855567020779, guid: 026947fc6a8817143af92f8f25be7a5c, type: 3}
