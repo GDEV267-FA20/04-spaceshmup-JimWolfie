@@ -81,10 +81,10 @@ public class Hero : MonoBehaviour
     public void AbsorbPowerUp(GameObject go)
     {
         PowerUp pu = go.GetComponent<PowerUp>();
-        switch(pu.type)
-        {
-
-        }
+        //switch(pu.type)
+        //{
+           
+        //}
         pu.AbsorbedBy(this.gameObject);
     }
     public float shieldLevel
