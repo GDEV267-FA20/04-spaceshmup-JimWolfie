@@ -24,7 +24,7 @@ public class Hero : MonoBehaviour
     public delegate void WeaponFireDelegate();
     public WeaponFireDelegate fireDelegate;
 
-    private void Awake()
+    private void Start()
     {
         if(S==null)
         {
@@ -33,6 +33,8 @@ public class Hero : MonoBehaviour
         {
             Debug.LogError("Hero.awake() - attempted to assign second Hero");
         }
+        ClearWeapons();
+        weapons[0].SetType(WeaponType.blaster);
         
     }
 
@@ -81,10 +83,27 @@ public class Hero : MonoBehaviour
     public void AbsorbPowerUp(GameObject go)
     {
         PowerUp pu = go.GetComponent<PowerUp>();
-        //switch(pu.type)
-        //{
-           
-        //}
+        switch(pu.type)
+        {
+            case WeaponType.shield:
+                shieldLevel++;
+                break;
+            default:
+                if(pu.type == weapons[0].type)
+            {
+                Weapon w = GetEmptyWeaponSlot();
+                if(w!= null)
+                {
+                    w.SetType(pu.type);
+                }
+            } else
+            {
+                ClearWeapons();
+                weapons[0].SetType(pu.type);
+            }
+                break;
+
+        }
         pu.AbsorbedBy(this.gameObject);
     }
     public float shieldLevel
@@ -101,4 +120,24 @@ public class Hero : MonoBehaviour
             }
         }
     }
+    Weapon GetEmptyWeaponSlot()
+    {
+
+        for(int i=0; i< weapons.Length; i++)
+        {
+            if(weapons[i].type==WeaponType.none)
+            {
+                return(weapons[i]);
+            }
+        }
+        return(null);
+    }
+    void ClearWeapons()
+    {
+        foreach(Weapon w in weapons)
+        {
+            w.SetType(WeaponType.none);
+        }
+    }
+
 }
