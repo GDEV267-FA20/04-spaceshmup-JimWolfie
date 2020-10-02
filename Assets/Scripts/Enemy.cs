@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float health =10f;
     public int score = 100;
     public float showDamageDuration = 0.1f;
+    public float powerUpDropChance = 1f;
 
     public Color[] orginalColors;
     public Material[] materials;
@@ -77,6 +78,11 @@ public class Enemy : MonoBehaviour
                 ShowDamage();
                 if(health<=0)
                 {
+                if(!notifiedOfDestruction)
+                {
+                    Main.S.shipDestroyed(this);
+                }
+                    notifiedOfDestruction = true;
                     Destroy(this.gameObject);
                 }
                 Destroy(otherGO);
