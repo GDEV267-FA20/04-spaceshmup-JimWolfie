@@ -257,6 +257,13 @@ MonoBehaviour:
   fireRate: 0.3
   health: 10
   score: 100
+  showDamageDuration: 0.1
+  powerUpDropChance: 0.25
+  orginalColors: []
+  materials: []
+  showingDamage: 0
+  damageDoneTime: 0
+  notifiedOfDestruction: 0
 --- !u!114 &720458202571184473
 MonoBehaviour:
   m_ObjectHideFlags: 0
