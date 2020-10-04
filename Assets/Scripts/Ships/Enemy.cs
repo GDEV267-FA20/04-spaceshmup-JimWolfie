@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Set in Inspector")]
-    public float speed =10f;
-    public float fireRate = .3f;
-    public float health =10f;
-    public int score = 100;
-    public float showDamageDuration = 0.1f;
-    public float powerUpDropChance = 1f;
+    public ENEMY_SO sOB;
+    public Color[] orginalColors;//render pipeline
+    public Material[] materials;//render pipeline
+    public bool showingDamage = false; //render pipeline
+    public float damageDoneTime; //needs to use render pipeline. 
+    public bool notifiedOfDestruction = false; //needs to be an event
 
-    public Color[] orginalColors;
-    public Material[] materials;
-    public bool showingDamage = false;
-    public float damageDoneTime;
-    public bool notifiedOfDestruction = false;
-
-
+    [System.NonSerialized] public float _health;
+    [System.NonSerialized] public float _showDamageDuration;
+    [System.NonSerialized] public float powerUpDropChance;
     protected BoundsCheck bndCheck;
 
     private void Awake()
     {
+        _health = sOB.health;
+        _showDamageDuration = sOB.showDamageDuration;
+        powerUpDropChance = sOB.powerUpDropChance;
         bndCheck = GetComponent<BoundsCheck>();
         materials = Utils.GetAllMaterials(gameObject);
         orginalColors = new Color[materials.Length];
@@ -58,10 +56,11 @@ public class Enemy : MonoBehaviour
     public virtual void Move()
     {
         Vector3 tempPos = pos;
-        tempPos.y -= speed*Time.deltaTime;
+        tempPos.y -= sOB.speed*Time.deltaTime;
         pos=tempPos;
     }
 
+    //
     private void OnCollisionEnter(Collision coll)
     {
         GameObject otherGO = coll.gameObject;
@@ -74,9 +73,9 @@ public class Enemy : MonoBehaviour
                     Destroy(otherGO);
                     break;
                 }
-                health -= Main.GetWeaponDefinition(p.type).damageOnHit;
+                _health -= Main.GetWeaponDefinition(p.type).damageOnHit;
                 ShowDamage();
-                if(health<=0)
+                if(_health<=0)
                 {
                 if(!notifiedOfDestruction)
                 {
@@ -99,7 +98,7 @@ public class Enemy : MonoBehaviour
             m.color = Color.red;
         }
         showingDamage = true;
-        damageDoneTime = Time.time +showDamageDuration;
+        damageDoneTime = Time.time +_showDamageDuration;
     }
     void UnShowDamage()
     {

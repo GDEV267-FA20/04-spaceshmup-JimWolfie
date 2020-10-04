@@ -110,7 +110,7 @@ public class Enemy_4 : Enemy
     void ShowLOcalizedDamage(Material m)
     {
         m.color = Color.red;
-        damageDoneTime = Time.time +showDamageDuration;
+        damageDoneTime = Time.time +_showDamageDuration;
         showingDamage = true;
     }
     private void OnCollisionEnter(Collision coll)
