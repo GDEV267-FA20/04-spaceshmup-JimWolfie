@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum WeaponType
 {
+    //become their own scriptable object types, inheriting from weapon. 
     none,
     blaster,
     spread,
