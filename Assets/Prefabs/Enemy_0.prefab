@@ -253,6 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a35ae73ed3c89940851a6035b04acc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 0a6be18f522c4834394617bef147acc0, type: 2}
+  moves: {fileID: 0}
+  gun: {fileID: 0}
   speed: 10
   fireRate: 0.3
   health: 10
