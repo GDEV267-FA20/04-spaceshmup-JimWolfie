@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
     static public Transform PROJECTILE_ANCHOR;
 
     [Header("Set dynamically")][SerializeField]
-    private WeaponType _type=WeaponType.none;
+    private WeaponType _type=WeaponType.none;//this is referencing the ABSTRACT WEAPON object?
     public WeaponDefinition def;
     public GameObject collar;
     public float lastShotTime;
