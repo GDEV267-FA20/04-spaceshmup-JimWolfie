@@ -5,37 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "weaponDEfs", menuName = "lists and dictionaries")]
 public class WEAPON_DEFINITION : ScriptableObject
 {
-    public WEAPON_ABSTRACT[] weapon_list;
-    public Dictionary<WeaponType, WEAPON_ABSTRACT> wDictonary;
-    public void OnEnable()
-    {
-        if(weapon_list == null)
-        {
-            Debug.Log("cry and complain on unity forums about how scriptable objects are stupid and that you're stupid");
-            
-        }else
-        {
-            if(wDictonary == null)
-            {
-                wDictonary = new Dictionary<WeaponType, WEAPON_ABSTRACT>();
-            }
-            foreach(WEAPON_ABSTRACT wp in weapon_list)
-            {
-                var _type = wp.type;
-                wDictonary[wp.type] = wp;
-            }
-        }
-    }
-    public WEAPON_ABSTRACT GetWeaponDefinition(WeaponType wt)
-    {
-        if(wDictonary.ContainsKey(wt))
-        {
-            return (wDictonary[wt]);
-            
-        }
-        Debug.Log("oops");
-        return(weapon_list[0]); 
-    }
-    
+    public string letter;
+    public bool tag;
+    public Color color;
+    public GameObject projectilePrefab;
+    public Color projectileColor;
+    public float damageOnHit = 0;
+    public float continuousDamage = 0;
+    public float delayBetweenShots;
+    public float vel;
 }
 

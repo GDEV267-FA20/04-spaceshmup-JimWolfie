@@ -2,37 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WeaponType
+ public class WEAPON_ABSTRACT : ScriptableObject
 {
-    //become their own scriptable object types, inheriting from weapon. 
-    none,
-    blaster,
-    spread,
-    phaser,
-    missile,
-    laser,
-    shield
-}
-
-abstract public class WEAPON_ABSTRACT : ScriptableObject
-{
-    public WeaponType type;
-    public string letter;
-    public Color color;
-    public GameObject projectilePrefab;
-    public Color projectileColor;
-    public float damageOnHit = 0;
-    public float continuousDamage = 0;
-    public float delayBetweenShots;
-    public float vel;
-    // Start is called before the first frame update
-    //public abstract void SetType(); returns the delegate for fire
-    //public abstract void Fire(); runs the make projectiles
-    public virtual Projectile MakeProjectile(GameObject user, Transform PROJECTILE_ANCHOR)
+   public WEAPON_DEFINITION wd;
+    
+    public Projectile MakeProjectile()
     {
-        GameObject go = Instantiate<GameObject>(this.projectilePrefab);
-        if(user.transform.parent.gameObject.tag == "Hero")
-        {
+        GameObject go = Instantiate<GameObject>(wd.projectilePrefab);
+        if(wd.tag)
+        {//tag is a bool indicating its a hero. this needs to be an int or something, not a string
             go.tag = "ProjectileHero";
             go.layer = LayerMask.NameToLayer("ProjectileHero");
             
@@ -47,7 +25,7 @@ abstract public class WEAPON_ABSTRACT : ScriptableObject
         go.transform.SetParent(PROJECTILE_ANCHOR, true);
         Projectile p = go.GetComponent<Projectile>();
         p.type = type;//gets the asset as reference
-        p.rb.velocity = this.vel*Vector3.up;
+       
         return (p);
     }
 

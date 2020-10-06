@@ -12,13 +12,9 @@ public class Main : MonoBehaviour
     public GameObject[] prefabEnemies;
     public float enemySpawnPerSecond = 0.5f;
     public float enemyDefaultPadding = 1.5f;
-    public WEAPON_DEFINITION wd;
-    public GameObject prefabPowerUp;
-    public WeaponType[] powerUpFrequency = new WeaponType[]
-    {
-        WeaponType.blaster, WeaponType.blaster, WeaponType.spread, WeaponType.shield
-    };
-    
+    public static Transform PROJECTILE_ANCHOR;
+
+
     private BoundsCheck bndCheck;
     public void shipDestroyed(Enemy e)
     {
@@ -39,8 +35,12 @@ public class Main : MonoBehaviour
         bndCheck = GetComponent<BoundsCheck>();
         Invoke("SpawnEnemy", 1f/enemySpawnPerSecond);
 
-            
-        
+        if(PROJECTILE_ANCHOR == null)
+        {
+            GameObject go = new GameObject("_ProjectileAnchor");
+            PROJECTILE_ANCHOR = go.transform;
+        }
+
     }
     
     public void SpawnEnemy()

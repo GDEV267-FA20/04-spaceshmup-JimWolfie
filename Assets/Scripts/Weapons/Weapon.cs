@@ -36,11 +36,7 @@ public class Weapon : MonoBehaviour
 
         SetType(_type);
 
-        if(PROJECTILE_ANCHOR == null)
-        {
-            GameObject go = new GameObject("_ProjectileAnchor");
-            PROJECTILE_ANCHOR = go.transform;
-        }
+        
 
         GameObject rootGO = transform.root.gameObject;
         if(rootGO.GetComponent<Hero>()!=null)
