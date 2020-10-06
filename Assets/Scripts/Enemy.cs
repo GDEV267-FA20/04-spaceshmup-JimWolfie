@@ -106,6 +106,8 @@ public class Enemy : MonoBehaviour
         }
         showingDamage = true;
         damageDoneTime = Time.time +showDamageDuration;
+        
+      
     }
     void UnShowDamage()
     {
@@ -115,4 +117,5 @@ public class Enemy : MonoBehaviour
         }
         showingDamage = false;
     }
+
 }
