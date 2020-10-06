@@ -6,10 +6,12 @@ public class Projectile : MonoBehaviour
 {
     private BoundsCheck bndCheck;
     private Renderer rend;
+    public WEAPON_DEFINITION wp;
 
     [Header("set dynamically")]
     public Rigidbody rb;
     [SerializeField]private WeaponType _type;
+    public Vector3 attack;
 
     public WeaponType type
     {
@@ -26,6 +28,7 @@ public class Projectile : MonoBehaviour
         bndCheck = GetComponent<BoundsCheck>();
         rend = GetComponent<Renderer>();
         rb = GetComponent<Rigidbody>();
+      
     }
   
     
@@ -39,7 +42,7 @@ public class Projectile : MonoBehaviour
     public void SetType(WeaponType eType)
     {
         _type = eType;
-        WeaponDefinition def = Main.GetWeaponDefinition(_type);
+        var def = wp.GetWeaponDefinition(_type);
         rend.material.color = def.projectileColor;
     }
 }

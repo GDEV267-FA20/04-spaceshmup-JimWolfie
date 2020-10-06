@@ -2,17 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WeaponType
-{
-    //become their own scriptable object types, inheriting from weapon. 
-    none,
-    blaster,
-    spread,
-    phaser,
-    missile,
-    laser,
-    shield
-}
+
 [System.Serializable]
 public class WeaponDefinition
 {
@@ -31,8 +21,8 @@ public class Weapon : MonoBehaviour
     static public Transform PROJECTILE_ANCHOR;
 
     [Header("Set dynamically")][SerializeField]
-    private WeaponType _type=WeaponType.none;//this is referencing the ABSTRACT WEAPON object?
-    public WeaponDefinition def;
+    public WEAPON_DEFINITION def;
+    public WEAPON_ABSTRACT refer;
     public GameObject collar;
     public float lastShotTime;
     
@@ -60,11 +50,7 @@ public class Weapon : MonoBehaviour
         
     }
 
-    public WeaponType type
-    {
-        get{ return(_type);}
-        set{ SetType(value);}
-    }
+    
     public void SetType(WeaponType wt)
     {
         _type =wt;

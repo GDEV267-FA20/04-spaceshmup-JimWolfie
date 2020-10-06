@@ -6,7 +6,7 @@ using UnityEngine;
 public class WEAPON_DEFINITION : ScriptableObject
 {
     public WEAPON_ABSTRACT[] weapon_list;
-    public Dictionary<string, WEAPON_ABSTRACT> wDictonary;
+    public Dictionary<WeaponType, WEAPON_ABSTRACT> wDictonary;
     public void OnEnable()
     {
         if(weapon_list == null)
@@ -17,7 +17,7 @@ public class WEAPON_DEFINITION : ScriptableObject
         {
             if(wDictonary == null)
             {
-                wDictonary = new Dictionary<string, WEAPON_ABSTRACT>();
+                wDictonary = new Dictionary<WeaponType, WEAPON_ABSTRACT>();
             }
             foreach(WEAPON_ABSTRACT wp in weapon_list)
             {
@@ -26,5 +26,16 @@ public class WEAPON_DEFINITION : ScriptableObject
             }
         }
     }
-
+    public WEAPON_ABSTRACT GetWeaponDefinition(WeaponType wt)
+    {
+        if(wDictonary.ContainsKey(wt))
+        {
+            return (wDictonary[wt]);
+            
+        }
+        Debug.Log("oops");
+        return(weapon_list[0]); 
+    }
+    
 }
+
