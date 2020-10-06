@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //movement stats
+    public Ship_Stats stats;
+    public Ship_Move moves;
+    public ShipWeaponSubscriber gun;
+    //movement methods
+    //weapons
     [Header("Set in Inspector")]
     public float speed =10f;
     public float fireRate = .3f;
