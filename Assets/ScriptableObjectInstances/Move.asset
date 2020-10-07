@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feda4cdf233e66941a82a53b342ba05b, type: 3}
   m_Name: Move
   m_EditorClassIdentifier: 
+  subscribers: []
