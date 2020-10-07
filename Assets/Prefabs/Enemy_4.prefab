@@ -65,12 +65,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4417ec6f3cd93cb4197e43eadc2a8475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  fireRate: 0.3
-  health: 10
-  score: 100
+  stats: {fileID: 11400000, guid: 8a5f85eb1b9853d4596a72d6dc49ac5a, type: 2}
+  moves: {fileID: 0}
+  gun: {fileID: 0}
   showDamageDuration: 0.1
-  powerUpDropChance: 1
   orginalColors: []
   materials: []
   showingDamage: 0

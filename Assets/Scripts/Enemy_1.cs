@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Enemy_1 : Enemy
 {
-    [Header("Set in Inpector: Enemy1")]
-    public float waveFrequency =2;
-    public float waveWidth =4;
+    
+    [NonSerialized]public float waveFrequency =2;
+    [NonSerialized]public float waveWidth =4;
     public float waveRotY =45;
     
     private float xO;
     private float birthTime;
 
-   
+    public override void Awake()
+    {
+        base.Awake();
+        waveFrequency = stats.rollMult;
+        waveWidth = stats.pitchMult;
+    }
+
     void Start()
     {
         xO = pos.x;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,13 +12,13 @@ public class Enemy : MonoBehaviour
     //movement methods
     //weapons
     [Header("Set in Inspector")]
-    public float speed =10f;
-    public float fireRate = .3f;
-    public float health =10f;
-    public int score = 100;
-    public float showDamageDuration = 0.1f;
-    public float powerUpDropChance = 1f;
+    [NonSerialized] public float _speed;
+    [NonSerialized] public float _fireRate;
+    [NonSerialized] public float _health;
+    [NonSerialized] public int _score; 
+    [NonSerialized] public float powerUpDropChance;
 
+    public float showDamageDuration = 1f;
     public Color[] orginalColors;
     public Material[] materials;
     public bool showingDamage = false;
@@ -27,8 +28,13 @@ public class Enemy : MonoBehaviour
 
     protected BoundsCheck bndCheck;
 
-    private void Awake()
+    public virtual void Awake()
     {
+        _speed = stats.speed;
+        _fireRate =stats.fireRate;
+        _health = stats.health;
+        _score = stats.score;
+        powerUpDropChance = stats.powerUpDropChance;
         bndCheck = GetComponent<BoundsCheck>();
         materials = Utils.GetAllMaterials(gameObject);
         orginalColors = new Color[materials.Length];
@@ -64,7 +70,7 @@ public class Enemy : MonoBehaviour
     public virtual void Move()
     {
         Vector3 tempPos = pos;
-        tempPos.y -= speed*Time.deltaTime;
+        tempPos.y -= _speed*Time.deltaTime;
         pos=tempPos;
     }
 
@@ -80,9 +86,9 @@ public class Enemy : MonoBehaviour
                     Destroy(otherGO);
                     break;
                 }
-                health -= Main.GetWeaponDefinition(p.type).damageOnHit;
+                _health -= Main.GetWeaponDefinition(p.type).damageOnHit;
                 ShowDamage();
-                if(health<=0)
+                if(_health<=0)
                 {
                 if(!notifiedOfDestruction)
                 {
