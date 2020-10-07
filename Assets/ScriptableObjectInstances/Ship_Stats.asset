@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfef8d9bdfcc934cb8f0b4c1360bc34, type: 3}
   m_Name: Ship_Stats
   m_EditorClassIdentifier: 
-  rollMult: 0
-  pitchMult: 0
-  projectilePrefab: {fileID: 0}
-  fireRate: 0
-  speed: 0
-  health: 0
-  powerUpDropChance: 0
-  score: 0
+  rollMult: 1
+  pitchMult: 1
+  projectilePrefab: {fileID: 4318125855567020779, guid: 026947fc6a8817143af92f8f25be7a5c, type: 3}
+  fireRate: 0.3
+  speed: 10
+  health: 10
+  powerUpDropChance: 0.25
+  score: 100

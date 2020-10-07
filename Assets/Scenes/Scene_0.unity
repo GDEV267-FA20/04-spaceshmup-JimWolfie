@@ -818,6 +818,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176519013bd48dd4a8004b58f234e983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats:
+  - {fileID: 11400000, guid: 0a6be18f522c4834394617bef147acc0, type: 2}
+  - {fileID: 11400000, guid: 8a5f85eb1b9853d4596a72d6dc49ac5a, type: 2}
+  - {fileID: 11400000, guid: f9b4e547a7b57ea428e2529b1ac22860, type: 2}
   prefabEnemies:
   - {fileID: 7794793157272712594, guid: 293dfe79f784e1840a701b50ab619858, type: 3}
   - {fileID: 7794793157272712594, guid: 293dfe79f784e1840a701b50ab619858, type: 3}

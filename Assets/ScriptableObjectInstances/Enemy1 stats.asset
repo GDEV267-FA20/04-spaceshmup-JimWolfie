@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfef8d9bdfcc934cb8f0b4c1360bc34, type: 3}
   m_Name: Enemy1 stats
   m_EditorClassIdentifier: 
-  rollMult: 0
-  pitchMult: 0
+  rollMult: 2
+  pitchMult: 4
   projectilePrefab: {fileID: 0}
-  fireRate: 0
-  speed: 0
-  health: 0
-  powerUpDropChance: 0
-  score: 0
+  fireRate: 0.3
+  speed: 10
+  health: 3
+  powerUpDropChance: 0.5
+  score: 100
