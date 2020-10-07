@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     protected BoundsCheck bndCheck;
 
-    public virtual void Awake()
+    private void Awake()
     {
         _speed = stats.speed;
         _fireRate =stats.fireRate;

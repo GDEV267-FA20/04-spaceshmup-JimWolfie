@@ -13,15 +13,12 @@ public class Enemy_1 : Enemy
     private float xO;
     private float birthTime;
 
-    public override void Awake()
-    {
-        base.Awake();
-        waveFrequency = stats.rollMult;
-        waveWidth = stats.pitchMult;
-    }
+    
 
     void Start()
     {
+        waveFrequency = stats.rollMult;
+        waveWidth = stats.pitchMult;
         xO = pos.x;
         birthTime = Time.time;
     }
