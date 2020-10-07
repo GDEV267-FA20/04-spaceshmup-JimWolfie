@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     static public Hero S; 
-    public GameEvent enMove;
+  
     [Header("Set in Inspector")]
     public float speed =30;
     public float rollMult=-45;
@@ -41,7 +41,7 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enMove.FireEvent();
+        
         float xAxis = Input.GetAxis("Horizontal");
         float yAxis = Input.GetAxis("Vertical");
 

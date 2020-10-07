@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Enemy : GameEventSubscriber
+public class Enemy : MonoBehaviour
 {
     //movement stats
     public Ship_Stats stats;
