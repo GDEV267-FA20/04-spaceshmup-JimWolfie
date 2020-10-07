@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     //movement stats
     public Ship_Stats stats;
     
-    public ShipWeaponSubscriber gun;
+
     //movement methods
     //weapons
     [Header("Set in Inspector")]
