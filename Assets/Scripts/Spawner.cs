@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Spawner : Enemy
 {
-    public List<Ship_Stats> stats;
+    
 }

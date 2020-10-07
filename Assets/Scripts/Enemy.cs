@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Enemy : MonoBehaviour
+public class Enemy : GameEventSubscriber
 {
     //movement stats
     public Ship_Stats stats;
-    public Ship_Move moves;
+    
     public ShipWeaponSubscriber gun;
     //movement methods
     //weapons
@@ -27,9 +27,10 @@ public class Enemy : MonoBehaviour
 
 
     protected BoundsCheck bndCheck;
-
+    
     private void Awake()
     {
+
         _speed = stats.speed;
         _fireRate =stats.fireRate;
         _health = stats.health;
@@ -56,7 +57,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Move();
+        //Move();
         if(showingDamage && Time.time >damageDoneTime)
         {
             UnShowDamage();
@@ -69,6 +70,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Move()
     {
+        Debug.Log("Fired");
         Vector3 tempPos = pos;
         tempPos.y -= _speed*Time.deltaTime;
         pos=tempPos;

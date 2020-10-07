@@ -1133,6 +1133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17191ab8f8e1b954da707a0be7835148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enMove: {fileID: 11400000, guid: c6287e3d320165f41affe772f70ea23f, type: 2}
   speed: 30
   rollMult: -45
   pitchMult: 30
