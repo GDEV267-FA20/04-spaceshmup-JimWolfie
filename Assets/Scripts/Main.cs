@@ -8,7 +8,7 @@ public class Main : MonoBehaviour
     static public Main S;
     
     static Dictionary<WeaponType, WeaponDefinition> WEAP_DICT;
-    public List<Ship_Stats> stats;
+    public ObjectHolder obj;
     [Header("Set in Inspector")]
     public GameObject[] prefabEnemies;
     public float enemySpawnPerSecond = 0.5f;

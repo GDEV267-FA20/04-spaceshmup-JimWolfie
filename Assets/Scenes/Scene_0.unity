@@ -820,12 +820,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176519013bd48dd4a8004b58f234e983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats:
-  - {fileID: 11400000, guid: 0a6be18f522c4834394617bef147acc0, type: 2}
-  - {fileID: 11400000, guid: 8a5f85eb1b9853d4596a72d6dc49ac5a, type: 2}
-  - {fileID: 11400000, guid: f9b4e547a7b57ea428e2529b1ac22860, type: 2}
+  obj: {fileID: 11400000, guid: 114a47eeec48cf342b6281d72c7f43ce, type: 2}
   prefabEnemies:
   - {fileID: 3505103457279245181, guid: 25ec85cc4850c824daf6bebaa2593bdf, type: 3}
+  - {fileID: 7794793157272712594, guid: 293dfe79f784e1840a701b50ab619858, type: 3}
+  - {fileID: 7794793157272712594, guid: 293dfe79f784e1840a701b50ab619858, type: 3}
+  - {fileID: 7794793157272712594, guid: 293dfe79f784e1840a701b50ab619858, type: 3}
+  - {fileID: 4182269566582160484, guid: 1224bf8d4e55d134a83846abc725cc48, type: 3}
+  - {fileID: 4182269566582160484, guid: 1224bf8d4e55d134a83846abc725cc48, type: 3}
+  - {fileID: 5253807194451904514, guid: cfaa11517e155574fbbac43be6a67ad9, type: 3}
+  - {fileID: 5253807194451904514, guid: cfaa11517e155574fbbac43be6a67ad9, type: 3}
+  - {fileID: 7937916992050198797, guid: bdbeea97774d77145a045f95408fe956, type: 3}
+  - {fileID: 7937916992050198797, guid: bdbeea97774d77145a045f95408fe956, type: 3}
+  - {fileID: 6024933597755674331, guid: 97ee2250383481d4e807bb342d21d0c8, type: 3}
   enemySpawnPerSecond: 0.5
   enemyDefaultPadding: 1.5
   weaponDefinitions:
