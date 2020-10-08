@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     public bool showingDamage = false;
     public float damageDoneTime;
     public bool notifiedOfDestruction = false;
-    [SerializeField]private VoidEvent onDestruction;
+    public VoidEvent onDestruction;
 
     protected BoundsCheck bndCheck;
     
@@ -97,11 +97,12 @@ public class Enemy : MonoBehaviour
                 {
                 if(!notifiedOfDestruction)
                 {
-                    Raise();
+                    
                     Main.S.shipDestroyed(this);
 
                 }
                     notifiedOfDestruction = true;
+                    Raise();
                     Destroy(this.gameObject);
                 }
                 Destroy(otherGO);
@@ -132,8 +133,12 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Raise()
     {
-        
-        onDestruction?.FireEvent();
+
+        if(onDestruction !=null)
+        {
+            Debug.Log("on destruction");
+            onDestruction.FireEvent();
+        }
         Debug.Log("event not null");
     }
 

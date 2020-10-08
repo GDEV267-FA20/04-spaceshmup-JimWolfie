@@ -15,7 +15,24 @@ public class Spawner : Enemy
     public override void Raise()
     {
         Debug.Log("spawnd1");
-        birthSpawn.FireEvent(this.transform.position);
+        if(onDestruction !=null)
+        {
+            Debug.Log("on destruction");
+            onDestruction.FireEvent();
+        }
+        if(birthSpawn != null)
+        {
+            Vector3 pun = Vector3.zero;
+            pun += gameObject.transform.position;
+            pun.y += 3;
+            pun.x +=2;
+            birthSpawn.FireEvent(pun);
+            Debug.Log("fired once");
+            pun.x -= 4;
+            birthSpawn.FireEvent(pun);
+            Debug.Log("fired twice");
+        }
+        
         
     }
     
