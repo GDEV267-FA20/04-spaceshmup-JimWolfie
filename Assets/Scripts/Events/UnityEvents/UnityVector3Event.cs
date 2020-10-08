@@ -5,5 +5,5 @@ using UnityEngine.Events;
 
 namespace ships.events
 {
-    [System.Serializable] public class UnityVector3Event: UnityEvent<Vector3> { }
+    [System.Serializable]public class UnityVector3Event: UnityEvent<Vector3> { }
 }
