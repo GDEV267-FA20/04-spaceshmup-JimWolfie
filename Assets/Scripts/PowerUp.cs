@@ -45,6 +45,10 @@ public class PowerUp : MonoBehaviour
     {
         cube.transform.rotation = Quaternion.Euler(rotPerSecond*Time.time);
         float u = (Time.time -(birthTime+lifeTime))/fadeTime;
+        Vector3 tempPos = transform.position;
+        tempPos.y -= 15f*Time.deltaTime;
+
+        transform.position=tempPos;
         if(u>=1)
         {
             Destroy(this.gameObject);
@@ -60,6 +64,7 @@ public class PowerUp : MonoBehaviour
             letter.color=c;
 
         }
+
         if(!bndCheck.isOnScreen)
         {
             Destroy(this.gameObject);

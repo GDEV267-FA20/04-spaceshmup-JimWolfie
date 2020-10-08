@@ -35,10 +35,7 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Vector3 tempPos = transform.position;
-        tempPos.y -= 15f*Time.deltaTime;
         
-        transform.position=tempPos;
     }
     public void SetType(WeaponType eType)
     {
