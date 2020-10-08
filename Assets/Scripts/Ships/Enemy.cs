@@ -132,7 +132,7 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Raise()
     {
-        Debug.Log("event raised");
+        
         onDestruction?.FireEvent();
         Debug.Log("event not null");
     }

@@ -6,6 +6,7 @@ MonoImporter:
   defaultReferences:
   - stats: {fileID: 11400000, guid: 0a6be18f522c4834394617bef147acc0, type: 2}
   - onDestruction: {fileID: 11400000, guid: 2c6e0492572943740bfccd24d6f51d14, type: 2}
+  - birthSpawn: {fileID: 11400000, guid: c8455fdbb8c07194bb149ac4a4217257, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

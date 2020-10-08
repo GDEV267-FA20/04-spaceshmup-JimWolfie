@@ -38,6 +38,8 @@ public class Enemy_2 : Enemy
         float u = (Time.time - birthTime)/lifeTime;
         if(u>1)
         {
+            Raise();
+            Debug.Log("Enemy 2");
             Destroy(this.gameObject);
             return;
         }

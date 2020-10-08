@@ -135,6 +135,7 @@ MonoBehaviour:
   damageDoneTime: 0
   notifiedOfDestruction: 0
   onDestruction: {fileID: 0}
+  birthSpawn: {fileID: 0}
   numToSpawn: 5
 --- !u!114 &7931885363197330865
 MonoBehaviour:
@@ -156,6 +157,7 @@ MonoBehaviour:
   damageDoneTime: 0
   notifiedOfDestruction: 0
   onDestruction: {fileID: 11400000, guid: 2c6e0492572943740bfccd24d6f51d14, type: 2}
+  birthSpawn: {fileID: 11400000, guid: c8455fdbb8c07194bb149ac4a4217257, type: 2}
   numToSpawn: 5
 --- !u!114 &-2536950125405405772
 MonoBehaviour:

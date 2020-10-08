@@ -161,6 +161,8 @@ public class Enemy_4 : Enemy
                 }
                 if(allDestroyed)
                 {
+                    Raise();
+                    Debug.Log("Enemy 4");
                     Main.S.shipDestroyed(this);
                     Destroy(this.gameObject);
                 }
