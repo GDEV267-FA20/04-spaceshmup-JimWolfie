@@ -5,4 +5,9 @@ using UnityEngine;
 public class Spawner : Enemy
 {
     
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+
 }

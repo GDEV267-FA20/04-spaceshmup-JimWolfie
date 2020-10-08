@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using ships.events;
 
 public class Enemy : MonoBehaviour
 {
@@ -24,10 +25,11 @@ public class Enemy : MonoBehaviour
     public bool showingDamage = false;
     public float damageDoneTime;
     public bool notifiedOfDestruction = false;
-
+    [SerializeField]private VoidEvent onDestruction;
 
     protected BoundsCheck bndCheck;
-    
+
+  
     private void Awake()
     {
 
@@ -94,7 +96,9 @@ public class Enemy : MonoBehaviour
                 {
                 if(!notifiedOfDestruction)
                 {
+                    Raise();
                     Main.S.shipDestroyed(this);
+
                 }
                     notifiedOfDestruction = true;
                     Destroy(this.gameObject);
@@ -124,6 +128,10 @@ public class Enemy : MonoBehaviour
             materials[i].color=orginalColors[i];
         }
         showingDamage = false;
+    }
+    protected virtual void Raise()
+    {
+        onDestruction.FireEvent();
     }
 
 }
