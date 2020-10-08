@@ -713,6 +713,7 @@ GameObject:
   - component: {fileID: 1011618196}
   - component: {fileID: 1011618199}
   - component: {fileID: 1011618200}
+  - component: {fileID: 1011618201}
   m_Layer: 0
   m_Name: _MainCamera
   m_TagString: MainCamera
@@ -823,16 +824,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8a5f85eb1b9853d4596a72d6dc49ac5a, type: 2}
   - {fileID: 11400000, guid: f9b4e547a7b57ea428e2529b1ac22860, type: 2}
   prefabEnemies:
+  - {fileID: 3505103457279245181, guid: 25ec85cc4850c824daf6bebaa2593bdf, type: 3}
   - {fileID: 7794793157272712594, guid: 293dfe79f784e1840a701b50ab619858, type: 3}
-  - {fileID: 7794793157272712594, guid: 293dfe79f784e1840a701b50ab619858, type: 3}
-  - {fileID: 7794793157272712594, guid: 293dfe79f784e1840a701b50ab619858, type: 3}
-  - {fileID: 4182269566582160484, guid: 1224bf8d4e55d134a83846abc725cc48, type: 3}
-  - {fileID: 4182269566582160484, guid: 1224bf8d4e55d134a83846abc725cc48, type: 3}
-  - {fileID: 5253807194451904514, guid: cfaa11517e155574fbbac43be6a67ad9, type: 3}
-  - {fileID: 5253807194451904514, guid: cfaa11517e155574fbbac43be6a67ad9, type: 3}
-  - {fileID: 7937916992050198797, guid: bdbeea97774d77145a045f95408fe956, type: 3}
-  - {fileID: 7937916992050198797, guid: bdbeea97774d77145a045f95408fe956, type: 3}
-  - {fileID: 6024933597755674331, guid: 97ee2250383481d4e807bb342d21d0c8, type: 3}
   enemySpawnPerSecond: 0.5
   enemyDefaultPadding: 1.5
   weaponDefinitions:
@@ -865,6 +858,35 @@ MonoBehaviour:
     velocity: 0
   prefabPowerUp: {fileID: 942889353003881965, guid: d675f974eaf37334ab531cfc78e73eb7, type: 3}
   powerUpFrequency: 01000000010000000200000006000000
+  maxEnemies: 20
+--- !u!114 &1011618201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011618195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2d5e97ed813614bb850f695f5fef6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2c6e0492572943740bfccd24d6f51d14, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1011618200}
+        m_TargetAssemblyTypeName: Main, Assembly-CSharp
+        m_MethodName: removeCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1047088927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,7 +1155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17191ab8f8e1b954da707a0be7835148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enMove: {fileID: 11400000, guid: c6287e3d320165f41affe772f70ea23f, type: 2}
   speed: 30
   rollMult: -45
   pitchMult: 30
@@ -1146,7 +1167,7 @@ MonoBehaviour:
   - {fileID: 1608421327}
   - {fileID: 1752096239}
   - {fileID: 1339613717}
-  _shieldLevel: 1
+  _shieldLevel: 3
 --- !u!4 &1490915862
 Transform:
   m_ObjectHideFlags: 0

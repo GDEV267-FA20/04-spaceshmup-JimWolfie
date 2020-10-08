@@ -28,11 +28,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]private VoidEvent onDestruction;
 
     protected BoundsCheck bndCheck;
+    
 
-  
     private void Awake()
     {
-
+        
         _speed = stats.speed;
         _fireRate =stats.fireRate;
         _health = stats.health;
@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour
         }
         if(bndCheck != null && bndCheck.offDown)
         {
+            Raise();
             Destroy(gameObject);
         }
     }
@@ -129,9 +130,11 @@ public class Enemy : MonoBehaviour
         }
         showingDamage = false;
     }
-    protected virtual void Raise()
+    public virtual void Raise()
     {
-        onDestruction.FireEvent();
+        Debug.Log("event raised");
+        onDestruction?.FireEvent();
+        Debug.Log("event not null");
     }
 
 }

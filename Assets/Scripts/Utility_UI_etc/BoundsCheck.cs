@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using ships.events;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class BoundsCheck : MonoBehaviour
     [Header("Set in Inspector")]
     public float radius =1f;
     public bool keepOnScreen = true;
-
+   
     [Header("Set Dynamically")]
     public bool isOnScreen = true;
     public float camWidth;
